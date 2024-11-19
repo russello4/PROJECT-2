@@ -2,7 +2,7 @@ let table;
 let filteredTable;
  
 function preload() {
-  table = loadTable('/assets/bassrecord2024.csv', 'csv', 'header');
+  table = loadTable('./assets/bassrecord2024.csv', 'csv', 'header');
 }
  
 function setup() {
