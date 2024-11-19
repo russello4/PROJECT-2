@@ -2,7 +2,7 @@ let table;
 let filteredTable;
  
 function preload() {
-  table = loadTable('./assets/bassrecord2024.csv', 'csv', 'header');
+  table = loadTable('/assets/bassrecord2024.csv', 'csv', 'header');
 }
  
 function setup() {
@@ -20,7 +20,7 @@ function draw() {
  
   if (!table) return;
  
-  const dataToDraw = filteredTable || table; 
+  const dataToDraw = filteredTable || table;
   const numRows = dataToDraw.getRowCount();
   const Weight = dataToDraw.getColumn('Bass_WeightLbs');
   const USRegion = dataToDraw.getColumn('USRegion');
@@ -53,13 +53,13 @@ function draw() {
         fill('hotpink');
         break;
       default:
-        fill(220); 
+        fill(220);
     }
  
     rect(X, Y, W, H);
  
-    fill('white'); 
-    textSize(8); 
+    fill('white');
+    textSize(8);
     text(USRegion[i] + ' - ' + USstate[i] + ' - ' + Weight[i] + ' lbs', X + 10, Y + 8);
   }
 }
@@ -75,13 +75,13 @@ function handleButtonClick(event) {
     outlierButton: 'Outlier',
     westButton: 'West',
     southWestButton: 'South West',
-    allButton: 'All' 
+    allButton: 'All'
   };
  
   const regionToFilter = regionMapping[clickedButtonId];
  
   if (regionToFilter === 'All') {
-    filteredTable = null; 
+    filteredTable = null;
   } else if (regionToFilter) {
     const filteredRows = table.getRows().filter(row => row.get('USRegion') === regionToFilter);
  
